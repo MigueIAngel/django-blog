@@ -11,6 +11,10 @@ A bilingual (English/Spanish) blog built with **Django 6**. Pages are rendered o
 
 ![Home page](docs/home.jpg)
 
+**Live demo:** https://django-blog-demo.onrender.com · [Español](https://django-blog-demo.onrender.com/es/) · [API docs](https://django-blog-demo.onrender.com/api/docs/).
+
+> Hosted on Render's free plan: the first request after a period of inactivity can take up to a minute while the service wakes up. Demo data is reset on every restart.
+
 ## Features
 
 ### Website
