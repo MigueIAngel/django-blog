@@ -1,0 +1,27 @@
+{% load i18n %}
+<div class="post-grid">
+  {% for post in posts %}
+    <article class="post-card">
+      <div class="meta">
+        {% if post.category %}<a href="{{ post.category.get_absolute_url }}" class="category">{{ post.category.name }}</a>{% endif %}
+        <span>{{ post.published_at|date:"DATE_FORMAT" }}</span>
+      </div>
+      <h2><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h2>
+      <p>{{ post.excerpt|truncatechars:160 }}</p>
+      <div class="meta">
+        {% blocktranslate count minutes=post.reading_time %}{{ minutes }} min read{% plural %}{{ minutes }} min read{% endblocktranslate %}
+        · {% blocktranslate count counter=post.comment_count %}{{ counter }} comment{% plural %}{{ counter }} comments{% endblocktranslate %}
+      </div>
+    </article>
+  {% empty %}
+    <p class="empty">{% translate "No posts found." %}</p>
+  {% endfor %}
+</div>
+
+{% if is_paginated %}
+<nav class="pagination" aria-label="{% translate 'Pagination' %}">
+  {% if page_obj.has_previous %}<a href="?page={{ page_obj.previous_page_number }}{% if query %}&q={{ query|urlencode }}{% endif %}">← {% translate "Newer" %}</a>{% endif %}
+  <span>{% blocktranslate with number=page_obj.number total=paginator.num_pages %}Page {{ number }} of {{ total }}{% endblocktranslate %}</span>
+  {% if page_obj.has_next %}<a href="?page={{ page_obj.next_page_number }}{% if query %}&q={{ query|urlencode }}{% endif %}">{% translate "Older" %} →</a>{% endif %}
+</nav>
+{% endif %}

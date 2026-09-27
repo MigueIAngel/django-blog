@@ -1,0 +1,9 @@
+{% load i18n %}
+<form id="comment-form" method="post" action="{% url 'blog:add_comment' post.slug %}"
+      hx-post="{% url 'blog:add_comment' post.slug %}" hx-target="#comment-list" hx-swap="beforeend"
+      class="comment-form">
+  {% csrf_token %}
+  {{ comment_form.body }}
+  {% for error in comment_form.body.errors %}<p class="error">{{ error }}</p>{% endfor %}
+  <button type="submit" class="button">{% translate "Publish comment" %}</button>
+</form>
