@@ -1,0 +1,282 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-09-27 08:52+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: blog/forms.py:11
+msgid "Tags"
+msgstr "Etiquetas"
+
+#: blog/forms.py:13
+msgid "Comma-separated, e.g. django, python"
+msgstr "Separadas por comas, p. ej. django, python"
+
+#: blog/forms.py:42
+msgid "Write a comment…"
+msgstr "Escribe un comentario…"
+
+#: blog/forms.py:46
+msgid "Email"
+msgstr "Correo electrónico"
+
+#: blog/models.py:49 blog/models.py:70
+msgid "name"
+msgstr "nombre"
+
+#: blog/models.py:54
+msgid "category"
+msgstr "categoría"
+
+#: blog/models.py:55
+msgid "categories"
+msgstr "categorías"
+
+#: blog/models.py:75
+msgid "tag"
+msgstr "etiqueta"
+
+#: blog/models.py:76
+msgid "tags"
+msgstr "etiquetas"
+
+#: blog/models.py:101 templates/blog/post_detail.html:10
+msgid "Draft"
+msgstr "Borrador"
+
+#: blog/models.py:102
+msgid "Published"
+msgstr "Publicado"
+
+#: blog/models.py:104
+msgid "title"
+msgstr "título"
+
+#: blog/models.py:113
+msgid "excerpt"
+msgstr "resumen"
+
+#: blog/models.py:114
+msgid "body"
+msgstr "contenido"
+
+#: blog/models.py:114
+msgid "Markdown is supported."
+msgstr "Se admite Markdown."
+
+#: blog/models.py:116
+msgid "published at"
+msgstr "publicado el"
+
+#: blog/models.py:126
+msgid "post"
+msgstr "artículo"
+
+#: blog/models.py:127
+msgid "posts"
+msgstr "artículos"
+
+#: blog/models.py:164 blog/models.py:169
+msgid "comment"
+msgstr "comentario"
+
+#: blog/models.py:170
+msgid "comments"
+msgstr "comentarios"
+
+#: blog/views.py:121 blog/views.py:131
+msgid "Post saved."
+msgstr "Artículo guardado."
+
+#: blog/views.py:151
+msgid "Welcome! Your account was created."
+msgstr "¡Bienvenido! Tu cuenta fue creada."
+
+#: templates/base.html:6 templates/base.html:18
+#: templates/blog/post_detail.html:3
+msgid "The Dev Notebook"
+msgstr "El Cuaderno Dev"
+
+#: templates/base.html:7
+msgid "Notes on backend, APIs and the web."
+msgstr "Notas sobre backend, APIs y la web."
+
+#: templates/base.html:22 templates/blog/my_posts.html:7
+msgid "Write"
+msgstr "Escribir"
+
+#: templates/base.html:23 templates/blog/my_posts.html:6
+msgid "My posts"
+msgstr "Mis artículos"
+
+#: templates/base.html:25
+msgid "Log out"
+msgstr "Cerrar sesión"
+
+#: templates/base.html:28 templates/registration/login.html:5
+#: templates/registration/login.html:13
+msgid "Log in"
+msgstr "Iniciar sesión"
+
+#: templates/base.html:29 templates/registration/login.html:16
+#: templates/registration/signup.html:14
+msgid "Sign up"
+msgstr "Registrarse"
+
+#: templates/base.html:55
+msgid "Built with Django, HTMX and Django REST Framework."
+msgstr "Hecho con Django, HTMX y Django REST Framework."
+
+#: templates/blog/my_posts.html:10
+msgid "Title"
+msgstr "Título"
+
+#: templates/blog/my_posts.html:10
+msgid "Status"
+msgstr "Estado"
+
+#: templates/blog/my_posts.html:10
+msgid "Updated"
+msgstr "Actualizado"
+
+#: templates/blog/my_posts.html:17 templates/blog/post_detail.html:17
+msgid "Edit"
+msgstr "Editar"
+
+#: templates/blog/my_posts.html:20
+msgid "You have not written any posts yet."
+msgstr "Aún no has escrito artículos."
+
+#: templates/blog/partials/comment_form.html:8
+msgid "Publish comment"
+msgstr "Publicar comentario"
+
+#: templates/blog/partials/post_results.html:12
+#: templates/blog/post_detail.html:16
+#, python-format
+msgid "%(minutes)s min read"
+msgid_plural "%(minutes)s min read"
+msgstr[0] "%(minutes)s min de lectura"
+msgstr[1] "%(minutes)s min de lectura"
+
+#: templates/blog/partials/post_results.html:13
+#, python-format
+msgid "%(counter)s comment"
+msgid_plural "%(counter)s comments"
+msgstr[0] "%(counter)s comentario"
+msgstr[1] "%(counter)s comentarios"
+
+#: templates/blog/partials/post_results.html:17
+msgid "No posts found."
+msgstr "No se encontraron artículos."
+
+#: templates/blog/partials/post_results.html:22
+msgid "Pagination"
+msgstr "Paginación"
+
+#: templates/blog/partials/post_results.html:23
+msgid "Newer"
+msgstr "Más recientes"
+
+#: templates/blog/partials/post_results.html:24
+#, python-format
+msgid "Page %(number)s of %(total)s"
+msgstr "Página %(number)s de %(total)s"
+
+#: templates/blog/partials/post_results.html:25
+msgid "Older"
+msgstr "Anteriores"
+
+#: templates/blog/post_detail.html:14
+msgid "By"
+msgstr "Por"
+
+#: templates/blog/post_detail.html:30
+msgid "Comments"
+msgstr "Comentarios"
+
+#: templates/blog/post_detail.html:33
+msgid "Be the first to comment."
+msgstr "Sé el primero en comentar."
+
+#: templates/blog/post_detail.html:40
+msgid "Log in to comment"
+msgstr "Inicia sesión para comentar"
+
+#: templates/blog/post_detail.html:47
+msgid "Related posts"
+msgstr "Artículos relacionados"
+
+#: templates/blog/post_form.html:5
+msgid "Edit post"
+msgstr "Editar artículo"
+
+#: templates/blog/post_form.html:5
+msgid "New post"
+msgstr "Nuevo artículo"
+
+#: templates/blog/post_form.html:16
+msgid "Save"
+msgstr "Guardar"
+
+#: templates/blog/post_list.html:6
+msgid "Category"
+msgstr "Categoría"
+
+#: templates/blog/post_list.html:8
+msgid "Tag"
+msgstr "Etiqueta"
+
+#: templates/blog/post_list.html:10
+msgid "Blog"
+msgstr "Blog"
+
+#: templates/blog/post_list.html:11
+msgid "Notes on backend, APIs and the web"
+msgstr "Notas sobre backend, APIs y la web"
+
+#: templates/blog/post_list.html:12
+msgid "Short articles about the tools and patterns I use every day."
+msgstr "Artículos breves sobre las herramientas y patrones que uso a diario."
+
+#: templates/blog/post_list.html:16
+msgid "Search posts…"
+msgstr "Buscar artículos…"
+
+#: templates/blog/post_list.html:17
+msgid "Search posts"
+msgstr "Buscar artículos"
+
+#: templates/blog/post_list.html:24
+msgid "Categories"
+msgstr "Categorías"
+
+#: templates/blog/post_list.html:25
+msgid "All"
+msgstr "Todos"
+
+#: templates/registration/login.html:15
+msgid "Demo account"
+msgstr "Cuenta de demostración"
+
+#: templates/registration/login.html:16
+msgid "No account yet?"
+msgstr "¿Aún no tienes cuenta?"
+
+#: templates/registration/signup.html:5
+msgid "Create your account"
+msgstr "Crea tu cuenta"
