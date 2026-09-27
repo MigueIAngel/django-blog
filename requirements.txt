@@ -1,0 +1,10 @@
+Django==6.1.*
+djangorestframework==3.18.*
+drf-spectacular==0.30.*
+django-filter==25.*
+Markdown==3.*
+nh3==0.3.*
+psycopg[binary]==3.2.*
+dj-database-url==3.*
+gunicorn==23.*
+whitenoise==6.*
