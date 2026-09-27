@@ -6,6 +6,7 @@ from django.conf import settings
 from django.db import models
 from django.urls import reverse
 from django.utils import timezone
+from django.utils.html import strip_tags
 from django.utils.text import slugify
 from django.utils.translation import gettext_lazy as _
 
@@ -135,7 +136,8 @@ class Post(models.Model):
         if self.status == self.Status.PUBLISHED and self.published_at is None:
             self.published_at = timezone.now()
         if not self.excerpt:
-            self.excerpt = self.body.replace("#", "").strip()[:280]
+            plain = strip_tags(markdown.markdown(self.body))
+            self.excerpt = " ".join(plain.split())[:280]
         super().save(*args, **kwargs)
 
     def get_absolute_url(self) -> str:
