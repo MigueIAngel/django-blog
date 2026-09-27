@@ -1,0 +1,61 @@
+{% load i18n static %}{% get_current_language as LANGUAGE_CODE %}<!doctype html>
+<html lang="{{ LANGUAGE_CODE }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}{% translate "The Dev Notebook" %}{% endblock %}</title>
+  <meta name="description" content="{% block description %}{% translate 'Notes on backend, APIs and the web.' %}{% endblock %}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{% static 'css/main.css' %}">
+  <script src="{% static 'js/htmx.min.js' %}" defer></script>
+</head>
+<body hx-headers='{"X-CSRFToken": "{{ csrf_token }}"}'>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="{% url 'blog:post_list' %}" class="brand">
+        <span class="brand-mark">✎</span> {% translate "The Dev Notebook" %}
+      </a>
+      <nav class="nav">
+        {% if user.is_authenticated %}
+          <a href="{% url 'blog:post_create' %}" class="button button-small">{% translate "Write" %}</a>
+          <a href="{% url 'blog:my_posts' %}">{% translate "My posts" %}</a>
+          <form action="{% url 'logout' %}" method="post" class="inline">
+            {% csrf_token %}<button type="submit" class="link">{% translate "Log out" %}</button>
+          </form>
+        {% else %}
+          <a href="{% url 'login' %}">{% translate "Log in" %}</a>
+          <a href="{% url 'blog:signup' %}" class="button button-small">{% translate "Sign up" %}</a>
+        {% endif %}
+        <form action="{% url 'set_language' %}" method="post" class="inline lang-switch">
+          {% csrf_token %}
+          <input type="hidden" name="next" value="{{ request.get_full_path }}">
+          {% if LANGUAGE_CODE == 'es' %}
+            <button type="submit" name="language" value="en" class="link" title="English">EN</button>
+          {% else %}
+            <button type="submit" name="language" value="es" class="link" title="Español">ES</button>
+          {% endif %}
+        </form>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    {% if messages %}
+      <div class="messages">
+        {% for message in messages %}<p class="message {{ message.tags }}">{{ message }}</p>{% endfor %}
+      </div>
+    {% endif %}
+    {% block content %}{% endblock %}
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>{% translate "Built with Django, HTMX and Django REST Framework." %}
+        <a href="/api/docs/">API</a> ·
+        <a href="https://github.com/MigueIAngel/django-blog">GitHub</a></p>
+    </div>
+  </footer>
+</body>
+</html>

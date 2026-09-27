@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block content %}
+<section class="hero">
+  {% if category %}
+    <p class="eyebrow">{% translate "Category" %}</p><h1>{{ category.name }}</h1>
+  {% elif tag %}
+    <p class="eyebrow">{% translate "Tag" %}</p><h1>#{{ tag.name }}</h1>
+  {% else %}
+    <p class="eyebrow">{% translate "Blog" %}</p>
+    <h1>{% translate "Notes on backend, APIs and the web" %}</h1>
+    <p class="lead">{% translate "Short articles about the tools and patterns I use every day." %}</p>
+  {% endif %}
+
+  <form class="search" action="" method="get" role="search">
+    <input type="search" name="q" value="{{ query }}" placeholder="{% translate 'Search posts…' %}"
+           aria-label="{% translate 'Search posts' %}"
+           hx-get="{{ request.path }}?partial=1" hx-trigger="input changed delay:300ms, search"
+           hx-target="#results" hx-push-url="false" hx-indicator="#search-indicator">
+    <span id="search-indicator" class="htmx-indicator">…</span>
+  </form>
+
+  {% if categories %}
+  <nav class="chips" aria-label="{% translate 'Categories' %}">
+    <a href="{% url 'blog:post_list' %}" class="chip {% if not category and not tag %}active{% endif %}">{% translate "All" %}</a>
+    {% for item in categories %}
+      <a href="{{ item.get_absolute_url }}" class="chip {% if category == item %}active{% endif %}">{{ item.name }} <small>{{ item.total }}</small></a>
+    {% endfor %}
+  </nav>
+  {% endif %}
+</section>
+
+<div id="results">{% include "blog/partials/post_results.html" %}</div>
+{% endblock %}

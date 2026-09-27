@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block content %}
+<section class="form-page narrow">
+  <h1>{% translate "Log in" %}</h1>
+  <form method="post" class="form">
+    {% csrf_token %}
+    {% if form.non_field_errors %}<p class="error">{{ form.non_field_errors|join:" " }}</p>{% endif %}
+    {% for field in form %}
+      <div class="field"><label for="{{ field.id_for_label }}">{{ field.label }}</label>{{ field }}</div>
+    {% endfor %}
+    <input type="hidden" name="next" value="{{ next }}">
+    <button type="submit" class="button">{% translate "Log in" %}</button>
+  </form>
+  <p class="hint">{% translate "Demo account" %}: <code>admin</code> / <code>admin12345</code></p>
+  <p>{% translate "No account yet?" %} <a href="{% url 'blog:signup' %}">{% translate "Sign up" %}</a></p>
+</section>
+{% endblock %}

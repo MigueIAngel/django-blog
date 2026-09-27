@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block content %}
+<section class="form-page">
+  <h1>{% if object %}{% translate "Edit post" %}{% else %}{% translate "New post" %}{% endif %}</h1>
+  <form method="post" class="form">
+    {% csrf_token %}
+    {% for field in form %}
+      <div class="field">
+        <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+        {{ field }}
+        {% if field.help_text %}<small>{{ field.help_text }}</small>{% endif %}
+        {% for error in field.errors %}<p class="error">{{ error }}</p>{% endfor %}
+      </div>
+    {% endfor %}
+    <button type="submit" class="button">{% translate "Save" %}</button>
+  </form>
+</section>
+{% endblock %}

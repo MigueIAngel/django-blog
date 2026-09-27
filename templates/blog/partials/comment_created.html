@@ -1,0 +1,4 @@
+{% include "blog/partials/comment.html" %}
+{# Out-of-band swaps: reset the form and remove the empty-state message. #}
+<div id="no-comments" hx-swap-oob="delete"></div>
+<div hx-swap-oob="outerHTML:#comment-form">{% include "blog/partials/comment_form.html" %}</div>
