@@ -24,6 +24,7 @@ class PostListView(ListView):
             Post.published.select_related("author", "category")
             .prefetch_related("tags")
             .annotate(comment_count=Count("comments"))
+            .order_by("-published_at", "-id")
         )
         if slug := self.kwargs.get("category_slug"):
             self.category = get_object_or_404(Category, slug=slug)
